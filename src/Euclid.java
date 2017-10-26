@@ -24,38 +24,37 @@ public class Euclid {
         b = abs(b);
         a = abs(a);
         if (b > a) {
-            if (floorMod(b,a) == 0)
+            if (floorMod(b, a) == 0)
                 return a;
             else
-                return gcd2(a, floorMod(b,a));
+                return gcd2(a, floorMod(b, a));
         } else {
             if ((a % b) == 0)
                 return b;
             else
-                return gcd2(b, floorMod(a,b));
+                return gcd2(b, floorMod(a, b));
         }
     }
 
-    public static int rem(int m, int n)
-    {
+    public static int rem(int m, int n) {
         m = abs(m);
         n = abs(n);
-        if (m > n) return m%n;
-        else return n%m;
+        if (m > n) return m % n;
+        else return n % m;
     }
 
     public static int gcd3(int a, int b) {
-        int r = rem(a,b);
+        int r = rem(a, b);
         if (b > a) {
-            if (rem(b,a) == 0)
+            if (rem(b, a) == 0)
                 return a;
             else
-                return gcd3(a, rem(b,a));
+                return gcd3(a, rem(b, a));
         } else {
             if ((a % b) == 0)
                 return b;
             else
-                return gcd3(b, rem(a,b));
+                return gcd3(b, rem(a, b));
         }
     }
 
