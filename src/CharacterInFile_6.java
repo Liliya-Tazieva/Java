@@ -3,7 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class CharacterInFile {
+public class CharacterInFile_6 {
     public static void main(String[] args) {
         String path = args[0];
         char c = args[1].charAt(0);

@@ -3,7 +3,7 @@ import java.util.Scanner;
 import static java.lang.Math.abs;
 import static java.lang.Math.floorMod;
 
-public class Euclid {
+public class Euclid_1 {
     public static int gcd1(int a, int b) {
         b = abs(b);
         a = abs(a);

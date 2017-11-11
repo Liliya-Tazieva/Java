@@ -1,7 +1,7 @@
 import java.util.stream.Stream;
 import static java.lang.Math.*;
 
-public class RandomNumbers {
+public class RandomNumbers_8 {
     public static long RandomNumb(long a, long c, long m, long threshold){
         return (int) ((a * threshold + c) % m);
     }

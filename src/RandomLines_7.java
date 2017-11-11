@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class RandomLines {
+public class RandomLines_7 {
 
     public  static  void  main(String args[]){
         String path = args[0];

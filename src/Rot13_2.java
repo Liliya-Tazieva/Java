@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Rot13 {
+public class Rot13_2 {
 
     public static char rot13(char c) {
         if (c >= 'a' && c <= 'm') c += 13;

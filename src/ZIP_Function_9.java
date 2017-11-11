@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public class ZIP_Function {
+public class ZIP_Function_9 {
 
     public static <T> Stream<T> Zip(Stream<T> a, Stream<T> b){
         Spliterator<T> aSpliterator = a.spliterator();

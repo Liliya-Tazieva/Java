@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import static java.lang.Math.pow;
 
-public class Hex_to_Dec {
+public class Hex_to_Dec_3 {
     public static int charToint(char c) {
         if (c == '1') return 1;
         else if (c == '2') return 2;

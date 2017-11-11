@@ -3,7 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class TransientVolatile {
+public class TransientVolatile_5 {
 
     public static boolean containsKeyWord(Path file, String word) {
         try {

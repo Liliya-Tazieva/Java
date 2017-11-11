@@ -8,7 +8,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Streams {
+public class Streams_4 {
 
     public static class intStream_from_Scanner{
         Scanner input;
