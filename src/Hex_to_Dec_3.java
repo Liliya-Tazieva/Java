@@ -14,12 +14,12 @@ public class Hex_to_Dec_3 {
         else if (c == '8') return 8;
         else if (c == '9') return 9;
         else if (c == '0') return 0;
-        else if (c == 'A' || c == 'a') return 10;
-        else if (c == 'B' || c == 'b') return 11;
-        else if (c == 'C' || c == 'c') return 12;
-        else if (c == 'D' || c == 'd') return 13;
-        else if (c == 'E' || c == 'd') return 14;
-        else if (c == 'F' || c == 'f') return 15;
+        else if (c == 'A') return 10;
+        else if (c == 'B') return 11;
+        else if (c == 'C') return 12;
+        else if (c == 'D') return 13;
+        else if (c == 'E') return 14;
+        else if (c == 'F') return 15;
         else return -1;
     }
 
@@ -43,7 +43,7 @@ public class Hex_to_Dec_3 {
         String hex;
         System.out.println("Enter hexadecimal numbers");
         hex = in.nextLine();
-        int dec = convert(hex);
+        int dec = convert(hex.toUpperCase());
         System.out.println("It's decimal interpretation = " + dec);
     }
 }
