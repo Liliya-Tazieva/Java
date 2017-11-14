@@ -3,10 +3,9 @@ import java.util.Scanner;
 public class Rot13_2 {
 
     public static char rot13(char c) {
-        if (c >= 'a' && c <= 'm') c += 13;
-        else if (c >= 'A' && c <= 'M') c += 13;
-        else if (c >= 'n' && c <= 'z') c -= 13;
-        else if (c >= 'N' && c <= 'Z') c -= 13;
+        if (c >= 'A' && c <= 'M' || c >= 'a' && c <= 'm') c += 13;
+        else if (c >= 'N' && c <= 'Z' || c >= 'n' && c <= 'z') c -= 13;
+        else c = '%';
         return c;
     }
 
