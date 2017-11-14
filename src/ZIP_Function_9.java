@@ -17,7 +17,7 @@ public class ZIP_Function_9 {
 
             @Override
             public boolean hasNext() {
-                return aIterator.hasNext() && bIterator.hasNext() || (!a_is_first && bIterator.hasNext());
+                return aIterator.hasNext() && bIterator.hasNext() || a_is_first && aIterator.hasNext() || !a_is_first && bIterator.hasNext();
             }
 
             @Override
@@ -50,6 +50,8 @@ public class ZIP_Function_9 {
         b.add("d");
         b.add("f");
         b.add("h");
+        b.add("j");
+        b.add("l");
 
         System.out.println(Zip(a.stream(),b.stream()).map(String::toString).collect(Collectors.joining(", ")));
     }

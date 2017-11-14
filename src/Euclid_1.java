@@ -4,58 +4,31 @@ import static java.lang.Math.abs;
 import static java.lang.Math.floorMod;
 
 public class Euclid_1 {
-    public static int gcd1(int a, int b) {
-        b = abs(b);
-        a = abs(a);
-        if (b > a) {
-            if ((b % a) == 0)
-                return a;
-            else
-                return gcd1(a, b % a);
-        } else {
-            if ((a % b) == 0)
-                return b;
-            else
-                return gcd1(b, a % b);
+    public static int gcd1(int a, int b){
+        while (b!=0){
+            int r = b;
+            b = a%b;
+            a = r;
         }
+        return a;
     }
 
-    public static int gcd2(int a, int b) {
-        b = abs(b);
-        a = abs(a);
-        if (b > a) {
-            if (floorMod(b, a) == 0)
-                return a;
-            else
-                return gcd2(a, floorMod(b, a));
-        } else {
-            if ((a % b) == 0)
-                return b;
-            else
-                return gcd2(b, floorMod(a, b));
+    public static int gcd2(int a, int b){
+        while (b!=0){
+            int r = b;
+            b = floorMod(a,b);
+            a = r;
         }
+        return a;
     }
 
-    public static int rem(int m, int n) {
-        m = abs(m);
-        n = abs(n);
-        if (m > n) return m % n;
-        else return n % m;
-    }
-
-    public static int gcd3(int a, int b) {
-        int r = rem(a, b);
-        if (b > a) {
-            if (rem(b, a) == 0)
-                return a;
-            else
-                return gcd3(a, rem(b, a));
-        } else {
-            if ((a % b) == 0)
-                return b;
-            else
-                return gcd3(b, rem(a, b));
+    public static int gcd3(int a, int b){
+        while (b!=0){
+            int r = b;
+            b = abs(a%b);
+            a = r;
         }
+        return a;
     }
 
     public static void main(String[] args) {
