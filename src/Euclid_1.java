@@ -4,28 +4,31 @@ import static java.lang.Math.abs;
 import static java.lang.Math.floorMod;
 
 public class Euclid_1 {
-    public static int gcd1(int a, int b){
-        while (b!=0){
+    //Greatest common divisor function with %
+    public static int gcd1(int a, int b) {
+        while (b != 0) {
             int r = b;
-            b = a%b;
+            b = a % b;
             a = r;
         }
         return a;
     }
 
-    public static int gcd2(int a, int b){
-        while (b!=0){
+    //Greatest common divisor function with floorMod
+    public static int gcd2(int a, int b) {
+        while (b != 0) {
             int r = b;
-            b = floorMod(a,b);
+            b = floorMod(a, b);
             a = r;
         }
         return a;
     }
 
-    public static int gcd3(int a, int b){
-        while (b!=0){
+    //Greatest common divisor function with rem
+    public static int gcd3(int a, int b) {
+        while (b != 0) {
             int r = b;
-            b = abs(a%b);
+            b = abs(a % b);
             a = r;
         }
         return a;

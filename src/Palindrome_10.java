@@ -1,100 +1,65 @@
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Palindrome_10 {
 
-    // d is the number of characters in
-    // input alphabet
-    static final int d = 256;
-
-    // q is a prime number used for
-    // evaluating Rabin Karp's Rolling hash
-    static final int q = 103;
-
-    static void checkPalindromes(String str)
-    {
-        // Length of input string
-        int N = str.length();
-
-        // Return if string has only one character
-        if (N == 1) return;
-
-        // Initialize first half reverse and second
-        // half for as firstr and second characters
-        int firstr  = str.charAt(0) % q;
-        int second = str.charAt(1) % q;
-
-        int h = 1, i, j;
-
-        // Now check for palindromes from second
-        // character onward
-        for (i = 1; i < N; i++)
-        {
-            // If the hash values of 'firstr' and
-            // 'second' match, then only check
-            // individual characters
-            if (firstr == second)
-            {
-                /* Check if str[0..i] is palindrome
-                using simple character by character
-                 match */
-                for (j = 0; j < i/2; j++)
-                {
-                    if (str.charAt(j) != str.charAt(i
-                            - j))
-                        break;
-                }
-                System.out.println((j == i/2) ? " is palindrome": " isn't palindrome");
-            }
-            else System.out.println(" isn't palindrome");
-
-            // Calculate hash values for next iteration.
-            // Don't calculate hash for next characters
-            // if this is the last character of string
-            if (i != N - 1)
-            {
-                // If i is even (next i is odd)
-                if (i % 2 == 0)
-                {
-                    // Add next character after first
-                    // half at beginning of 'firstr'
-                    h = (h * d) % q;
-                    firstr  = (firstr + h *str.charAt(i /
-                            2)) % q;
-
-                    // Add next character after second
-                    // half at the end of second half.
-                    second = (second * d + str.charAt(i +
-                            1)) % q;
-                }
-                else
-                {
-                    // If next i is odd (next i is even)
-                    // then we need not to change firstr,
-                    // we need to remove first character
-                    // of second and append a character
-                    // to it.
-                    second = (d * (second + q - str.charAt(
-                            (i + 1) / 2) * h) % q +
-                            str.charAt(i + 1)) % q;
-                }
-            }
-        }
-    }
-
-    /* Driver program to test above function */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
+        //Initialize input
+        System.out.println("Enter string that contains at least 1 character");
         Scanner scan = new Scanner(System.in);
         scan.useDelimiter("");
-        String c = "";
-        String totalString = "";
-        while (!c.equals("\n")) {
-            c = scan.next();
-            totalString += c;
+        String totalString = "", first, second, previous_char, current_char = "";
+
+        //Read 1st character, which is always a palindrome, into string, which will contain 1st half of input string
+        first = scan.next();
+        System.out.println("Current string: " + first + " is a palindrome");
+        //If possible read 2nd character into string, which will contain 2nd half of input string
+        second = scan.next();
+        if (second.equals("\n")) return;
+
+        //Initialize complete input string, count hash for 1st and 2nd halves
+        totalString = first + second;
+        previous_char = second;
+        int i = 1, hash_first, hash_second;
+        hash_first = first.hashCode();
+        hash_second = second.hashCode();
+
+        //Check whether input string is a palindrome from the 3rd character onward
+        while (true) {
+            boolean is_palindrome = false;
+            //Compare whether 1st and 2nd halves' hashes are equal
+            if (hash_first == hash_second) {
+                if (first.equals(second)) is_palindrome = true;
+            }
+            //Declare current input string a palindrome or not based on comparison above
             System.out.print("Current string: " + totalString);
-            checkPalindromes(totalString);
-            System.out.println();
+            if (is_palindrome) System.out.print(" is a palindrome\n");
+            else System.out.print(" isn't a palindrome\n");
+
+            //Check whether the input terminated
+            current_char = scan.next();
+            if (current_char.equals("\n")) break;
+            //If input carry on, change 1st and 2nd halves for the next iteration
+            totalString += current_char;
+
+            //If i is even then add next character after 1st half at beginning of 'first'
+            //and add next character after 2nd half at the end of 'second'
+            if (i % 2 == 0) {
+                first = previous_char + first;
+                second += current_char;
+            }
+            //If i is odd then keep 'first' the same,
+            //remove 1st character of 'second' and add next character after 2nd half at the end of 'second',
+            //save removed character in 'previous_char', to add it to 'first' on the next iteration
+            else {
+                previous_char = "" + second.charAt(0);
+                second = second.substring(1);
+                second += current_char;
+            }
+            //Count new hash
+            hash_first = first.hashCode();
+            hash_second = second.hashCode();
+            ++i;
         }
+        return;
     }
 }
